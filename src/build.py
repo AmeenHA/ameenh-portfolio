@@ -22,12 +22,32 @@ page = (r('template.html').replace('/*BUNDLE_CSS*/', css)
 os.makedirs(os.path.join(root, 'dist'), exist_ok=True)
 open(os.path.join(root, 'dist', 'artifact.html'), 'w', encoding='utf-8').write(page)
 
+GA_ID = 'G-S8FBSYG7NB'
+# Google tag (GA4): live site only, not the artifact preview.
+# The site is a single page with hash routes, so page views are sent manually
+# (one per case study / project; home sections count as "/").
+GTAG = ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>\n'
+        '<script>\n'
+        'window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}\n'
+        "gtag('js',new Date());gtag('config','" + GA_ID + "',{send_page_view:false});\n"
+        '(function(){var last=null;\n'
+        ' function pv(){var h=(location.hash||"").slice(1);if(h==="contact")return;\n'
+        '  var path=/ – Growth Marketer$/.test(document.title)||!h?"/":"/"+h;\n'
+        '  if(path===last)return;last=path;\n'
+        "  gtag('event','page_view',{page_title:document.title,page_location:location.origin+path,page_path:path});}\n"
+        ' window.addEventListener("hashchange",function(){setTimeout(pv,0);});\n'
+        ' window.addEventListener("DOMContentLoaded",function(){setTimeout(pv,0);});\n'
+        ' document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\\"mailto:\\"]");\n'
+        "  if(a)gtag('event','email_click',{link_url:a.href});});\n"
+        '})();\n'
+        '</script>\n')
+
 title = re.search(r'<title>.*?</title>', page).group(0)
 body = page.replace(title, '', 1)
 full = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
         '<meta name="description" content="Ameen H. is a growth marketer who finds the segment, tests the message and fixes the funnel. Case studies from TurboTax, HelloFresh, Ricoh and more.">\n'
         '<style>html{color-scheme:light}*{box-sizing:border-box}body{margin:0;font:14px/1.5 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>\n'
-        + title + '\n</head>\n<body>\n' + body + '\n</body>\n</html>\n')
+        + GTAG + title + '\n</head>\n<body>\n' + body + '\n</body>\n</html>\n')
 open(os.path.join(root, 'site', 'index.html'), 'w', encoding='utf-8').write(full)
 print('built', len(full), 'bytes')

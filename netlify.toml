@@ -1,3 +1,53 @@
 [build]
   publish = "site"
   command = ""
+
+[[redirects]]
+  from = "/bobabud"
+  to = "/#bobabud"
+  status = 301
+
+[[redirects]]
+  from = "/turbotax"
+  to = "/#turbotax"
+  status = 301
+
+[[redirects]]
+  from = "/hellofresh"
+  to = "/#hellofresh"
+  status = 301
+
+[[redirects]]
+  from = "/ricoh"
+  to = "/#ricoh"
+  status = 301
+
+[[redirects]]
+  from = "/explorerhop"
+  to = "/#explorerhop"
+  status = 301
+
+[[redirects]]
+  from = "/rippel"
+  to = "/#rippel"
+  status = 301
+
+[[redirects]]
+  from = "/gofleet"
+  to = "/#gofleet"
+  status = 301
+
+[[redirects]]
+  from = "/family-app"
+  to = "/#family-app"
+  status = 301
+
+[[redirects]]
+  from = "/habit-app"
+  to = "/#habit-app"
+  status = 301
+
+[[redirects]]
+  from = "/kalima-clash"
+  to = "/#kalima-clash"
+  status = 301
