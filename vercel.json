@@ -1,0 +1,58 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "",
+  "outputDirectory": "site",
+  "redirects": [
+    {
+      "source": "/bobabud",
+      "destination": "/#bobabud",
+      "permanent": true
+    },
+    {
+      "source": "/turbotax",
+      "destination": "/#turbotax",
+      "permanent": true
+    },
+    {
+      "source": "/hellofresh",
+      "destination": "/#hellofresh",
+      "permanent": true
+    },
+    {
+      "source": "/ricoh",
+      "destination": "/#ricoh",
+      "permanent": true
+    },
+    {
+      "source": "/explorerhop",
+      "destination": "/#explorerhop",
+      "permanent": true
+    },
+    {
+      "source": "/rippel",
+      "destination": "/#rippel",
+      "permanent": true
+    },
+    {
+      "source": "/gofleet",
+      "destination": "/#gofleet",
+      "permanent": true
+    },
+    {
+      "source": "/family-app",
+      "destination": "/#family-app",
+      "permanent": true
+    },
+    {
+      "source": "/habit-app",
+      "destination": "/#habit-app",
+      "permanent": true
+    },
+    {
+      "source": "/kalima-clash",
+      "destination": "/#kalima-clash",
+      "permanent": true
+    }
+  ]
+}
